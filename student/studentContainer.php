@@ -19,7 +19,7 @@
   </a>
   <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
   
-  <a class="w3-bar-item w3-button w3-teal" href="student/studentDashboard.php">Dashboard</a>
+  <a class="w3-bar-item w3-button w3-teal" href="studentDashboard.php">Dashboard</a>
   <a class="w3-bar-item w3-button" href="profile.php">Profile</a>
   
   <div>
@@ -31,7 +31,7 @@
     </div>
   </div>
   </div>
-  <a class="w3-bar-item w3-button w3-teal" href="logout.php">Logout</a>
+  <a class="w3-bar-item w3-button w3-teal" href="../logout.php">Logout</a>
   
 </nav>
 <div id="myTop" class="w3-container  w3-theme w3-large">
