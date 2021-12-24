@@ -1,16 +1,7 @@
-<?php
-    if( (!isset($_SESSION)) ) // if the session is no  set then start to new session
-    {
-         session_start();
-    }
-    if(($_SESSION["uname"]!="")){
-    
-?>
-
 <!DOCTYPE html>
 <html>
 <title>BVRITH</title>
-<link rel = "icon" href = "images/logo.jpg" type = "image/x-icon">
+<link rel = "icon" href = "../images/logo.jpg" type = "image/x-icon">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,35 +15,21 @@
 <body>
 
 <nav class="w3-sidebar w3-fixed  w3-bar-block w3-collapse  w3-card w3-light-grey" style="z-index:13;width:250px;" id="mySidebar">
-    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-mobile" href="dashboard.php" >  <img class="w3-image" src="images/logo.jpg" alt="Architecture" width="100" height="40">
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-mobile" href="dashboard.php" >  <img class="w3-image" src="../images/logo.jpg" alt="Architecture" width="100" height="40">
   </a>
   <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
   
-  <a class="w3-bar-item w3-button w3-teal" href="dashboard.php">Dashboard</a>
+  <a class="w3-bar-item w3-button w3-teal" href="student/studentDashboard.php">Dashboard</a>
   <a class="w3-bar-item w3-button" href="profile.php">Profile</a>
-  <a class="w3-bar-item w3-button" href="creditors.php">Creditors</a>
-  
- 
   
   <div>
     <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
     <div id="demo" class="w3-hide">
-      <a class="w3-bar-item w3-button" href="feedback.php">Feedback</a>
       <a class="w3-bar-item w3-button" href="ces.php">Course End Survey</a>
       <a class="w3-bar-item w3-button" href="ges.php">Graduate Exit Survey</a>
+      <a class="w3-bar-item w3-button" href="Viewges.php">GES View</a>
     </div>
   </div>
-  <div>
-    <a class="w3-bar-item w3-button" onclick="myAccordion('demo1')" href="javascript:void(0)">Valuation <i class="fa fa-caret-down"></i></a>
-    <div id="demo1" class="w3-hide">
-      <a class="w3-bar-item w3-button" href="partA.php">Part-A</a>
-      <a class="w3-bar-item w3-button" href="partB.php">Part-B</a>
-      <a class="w3-bar-item w3-button" href="partC.php">Part-C</a>
-      <a class="w3-bar-item w3-button" href="partD.php">Part-D</a>
-      <a class="w3-bar-item w3-button" href="partE.php">Part-E</a>
-      <a class="w3-bar-item w3-button" href="partF.php">Part-F</a>
-      <a class="w3-bar-item w3-button" href="total.php">Total</a>
-    </div>
   </div>
   <a class="w3-bar-item w3-button w3-teal" href="logout.php">Logout</a>
   
@@ -100,69 +77,3 @@
     }
 </script>    
 
-<br>
-<div class="w3-mobile w3-container" style="margin-left:250px;">
-    <a class="w3-button w3-green" href="#"> Filter come here</a>
-</div>
-<br>
-
-<div class="w3-container w3-main" style="margin-left:250px;">
-  <div class="w3-container w3-center w3-green"> <h4>Properties</h4></div>
-
-  <table class="w3-table-all w3-hoverable w3-card">
-    <thead>
-      <tr class="w3-light-grey w3-mobile">
-        <th>Property ID</th>
-        <th>Property Type</th>
-        <th>Area</th>
-        <th>Customer Name</th>
-        <th>Mobile Number</th>
-        <th>More</th>
-      </tr>
-    </thead>
-    
-    <?php include 'dbcon.php';?>		
-
-<?php  
-    error_reporting(0);
-
-    $sql = "SELECT p.Property_ID, p.Property_Type, p.Village_TSNo, c.Customer_Name, c.mobile_number from Property p,Customer c where p.Customer_ID=c.Customer_ID";
-    $result = mysqli_query($conn, $sql);
-    while($row = mysqli_fetch_assoc($result)) {
-?>        
-        <tr class="w3-mobile">
-            <td><?php echo $row["Property_ID"] ;?></td>
-            <td><?php echo $row["Property_Type"] ;?></td>
-            <td><?php echo $row["Village_TSNo"] ;?></td>
-            <td><?php echo $row["Customer_Name"] ;?></td>
-            <td><?php echo $row["mobile_number"] ;?></td>
-            <td><a href="viewProperty.php?id=<?php echo $row["Property_ID"]*78567543478345433;?>">More</a></td>    
-       </tr>
-<?php
-    }
-     //echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
-                 
-    mysqli_close($conn);
-
-?>
-    
-   
-  </table>
-</div>
-
-
-<br><br><br><br><br><br>
-
-<?php require 'footer.php'; ?>
-
-
-
-
-     
-</body>
-</html> 
-<?php
-}else{
-    echo header("Location:index.php");
-}
-?>

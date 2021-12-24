@@ -9,7 +9,7 @@ session_start();
 	if(mysqli_num_rows($result) && $row = mysqli_fetch_assoc($result)){
                 $_SESSION['uname']=$_POST['loginEmail'];
                 if($row['role_id']=="5"){
-                    echo header("Location:studentContainer.php");
+                    echo header("Location:student/studentDashboard.php");
                 }else if($row['role_id']=="4"){
                     echo header("Location:facultyContainer.php");
                 }else if($row['role_id']=="3"){
