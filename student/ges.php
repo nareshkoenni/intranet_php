@@ -293,28 +293,28 @@ students to ensure their preparedness for
 employment and/ or higher studies? If YES, please
 specify
 </td>
-        <td><p><textarea class="w3-input" placeholder="" required></textarea></p></td>
+        <td><p><textarea class="w3-input" placeholder="" required ></textarea></p></td>
       </tr>
       <tr>
         <td>2</td>
         <td>Total number of courses or training programs taken 
 during the programme 
 </td>
-        <td><p><textarea class="w3-input" placeholder="no_special_chars" name="training_program" required></textarea></p></td>
+<td><p><input type="number" step="+1"  class="w3-input"  name="training_program" required></p></td>
       </tr>
       <tr>
         <td>3</td>
         <td>Total number of conferences, workshops, professional 
 meetings etc. attended  
 </td>
-        <td><p><textarea class="w3-input" placeholder="number only" name="workshop" required></textarea></p></td>
+        <td><p><input type="number" class="w3-input" step="+1" name="workshop" required></p></td>
       </tr>
       <tr>
         <td>4</td>
         <td>Total number of sports and cultural activities
 participated  
 </td>
-        <td><p><textarea class="w3-input" placeholder="no_special_chars" name="sports" required></textarea></p></td>
+        <td><p><input type="number" class="w3-input" step="+1" name="sports" required></p></td>
       </tr>
       <tr>
         <td>5</td>

@@ -7,6 +7,12 @@
     
 ?>
 
+<!DOCTYPE html>
+<html>
+<title>BVRITH</title>
+<link rel = "icon" href = "images/logo.jpg" type = "image/x-icon">
+<?php require 'studentContainer.php'; ?>
+
 <script>
     // Open and close the sidebar on medium and small screens
     function showform(str) {
@@ -15,6 +21,8 @@
         return;
       }
       var x = document.getElementById("sem").value;
+      var y = document.getElementById("branch").value;
+      var z = document.getElementById("section").value;
     //  document.getElementById("demo").innerHTML = x;
       var xmlhttp=new XMLHttpRequest();
       xmlhttp.onreadystatechange=function() {
@@ -22,7 +30,7 @@
           document.getElementById("txtHint").innerHTML=this.responseText;
         }
       };
-      xmlhttp.open("GET","getFile.php?course="+str+"&key="+x,true);
+      xmlhttp.open("GET","GetViewCes.php?course="+str+"&sem="+x+"&branch="+y+"&section="+z,true);
       xmlhttp.send();
     }
     function showCourse() {
@@ -48,10 +56,12 @@
     }
 </script>    
 
-<?php require 'studentContainer.php'; ?>
+<br>
+
+<br>
 
 <div class="w3-container w3-main" style="margin-left:250px;">
-  <div class="w3-container w3-center w3-green"> <h4>Course End Survey</h4></div>
+  <div class="w3-container w3-center w3-green"> <h4>Course End Survey View</h4></div>
 
     
 <form name="dashboard">
@@ -67,7 +77,7 @@
                     <option value="41">4-1</option>
                     <option value="42">4-2</option>
          </select>
-        <select class="w3-select w3-border w3-half w3-round-xlarge" name="Branch" id="branch">
+        <select class="w3-select w3-border w3-half w3-round-xlarge" name="Branch" id="branch" onchange="showCourse()">
                     <option value=""selected>Select Branch</option>
                     <option value="CSE">CSE</option>
                     <option value="IT">IT</option>
@@ -89,6 +99,8 @@
   <div id="txtHint"></div>
 
     <div class="w3-row-padding">
+          
+        
         
 </div>
 </form>

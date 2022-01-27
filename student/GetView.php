@@ -20,7 +20,7 @@ th {text-align: left;}
 </head>
 <body>
 <?php
-include 'dbcon.php'
+include '../dbcon.php'
 ?>
 
 <div id="txtHint">

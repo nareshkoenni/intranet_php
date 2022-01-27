@@ -53,7 +53,7 @@ session_start();// Starting Session
         
       
            
-           include 'dbcon.php';
+           include '../dbcon.php';
            $ch = "SELECT * FROM ges WHERE rollnumber='".$rollnumber."'";
            $res = mysqli_query($conn, $ch);
            if(mysqli_num_rows($res)>0){  

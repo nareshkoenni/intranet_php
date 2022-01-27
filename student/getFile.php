@@ -9,7 +9,6 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 table, td, th {
   border: 1px solid black;
   padding: 5px;
@@ -19,26 +18,23 @@ th {text-align: left;}
 </style>
 </head>
 <body>
-    <?php
-include '../dbcon.php'
-?>
+
 <div id="txtHint">
 <?php
-$course=$_GET["course"];
-$sem=$_GET["sem"];
+include '../dbcon.php';
 
-$sql="SELECT p.co1,p.co2,p.co3,p.co4,p.co5,p.co6 from course p,course_branch q where q.sem = '".$sem."' and p.course_name='".$course."'";
+$course=$_GET["course"];
+$cou="select c.course_id from course c where c.course_name='$course'";
+$res = mysqli_query($conn,$cou);
+$cour_id = mysqli_fetch_array($res);
+$cid = $cour_id["course_id"];
+$sql="SELECT p.CO1,p.CO2,p.CO3,p.CO4,p.CO5,p.CO6 from course p where p.course_name = '$course'";
 $result = mysqli_query($conn,$sql);
-while($row = mysqli_fetch_assoc($result)) {
-//<form class="w3-panel w3-card-4" action="addCes.php" method="post">
-?>	
-<?php  
-//        error_reporting(0);
-//        $sql5 = "select p.co1,p.co2,p.co3,p.co4,p.co5,p.co6 from course p";
-//        $result5 = mysqli_query($conn, $sql5);
-//        while($row5 = mysqli_fetch_assoc($result5)) {
+$row = mysqli_fetch_array($result);
 echo "<form class='w3-panel w3-card-7' action='addCes.php' method='post'>";
-echo "<input type='hidden' value='$course' name='course'>";
+echo "<input type='hidden' value='$cid' name='course_id'>";
+echo "<label><b>Roll Number</b></label>";
+echo "<input class='w3-input w3-border w3-margin-bottom' type='text' placeholder='' maxlength='10' name='rollnumber' required>";
 echo "<table class='w3-table-all w3-round'>
 <tr>
     <td colspan='20'>
@@ -58,79 +54,72 @@ echo "<table class='w3-table-all w3-round'>
 
 <tr>
     <td>1</td>
-    <td>".$row["co1"]."</td>  
-    <td><input type='radio' name='co1' value='5'></td>
-    <td><input type='radio' name='co1' value='4'></td>
-    <td><input type='radio' name='co1' value='3'></td>
-    <td><input type='radio' name='co1' value='2'></td>
-    <td><input type='radio' name='co1' value='1'></td>
+    <td>$row[CO1]</td>  
+    <td><input type='radio' name='co1' value='1' required></td>
+    <td><input type='radio' name='co1' value='2' required></td>
+    <td><input type='radio' name='co1' value='3' required></td>
+    <td><input type='radio' name='co1' value='4' required></td>
+    <td><input type='radio' name='co1' value='5' required></td>
 </tr>
   
 <tr>
 <td>2</tb>
-<td>".$row["co2"]."</td> 
-<td><input type='radio' name='co2' value='5'></td>
-<td><input type='radio' name='co2' value='4'></td>
-<td><input type='radio' name='co2' value='3'></td>
-<td><input type='radio' name='co2' value='2'></td>
-<td><input type='radio' name='co2' value='1'></td>
+<td>$row[CO2]</td> 
+<td><input type='radio' name='co2' value='1' required></td>
+<td><input type='radio' name='co2' value='2' required></td>
+<td><input type='radio' name='co2' value='3' required></td>
+<td><input type='radio' name='co2' value='4' required></td>
+<td><input type='radio' name='co2' value='5' required></td>
 </tr>
 
 <tr>
 <td>3</td>
-<td>".$row["co3"]."</td>
-<td><input type='radio' name='co3' value='5'></td>
-    <td><input type='radio' name='co3' value='4'></td>
-    <td><input type='radio' name='co3' value='3'></td>
-    <td><input type='radio' name='co3' value='2'></td>
-    <td><input type='radio' name='co3' value='1'></td>
+<td>$row[CO3]</td>
+<td><input type='radio' name='co3' value='1' required></td>
+    <td><input type='radio' name='co3' value='2' required></td>
+    <td><input type='radio' name='co3' value='3' required></td>
+    <td><input type='radio' name='co3' value='4' required></td>
+    <td><input type='radio' name='co3' value='5' required></td>
 </tr>
 
 <tr>
 <td>4</td>
-<td>".$row["co4"]."</td> 
-<td><input type='radio' name='co4' value='5'></td>
-    <td><input type='radio' name='co4' value='4'></td>
-    <td><input type='radio' name='co4' value='3'></td>
-    <td><input type='radio' name='co4' value='2'></td>
-    <td><input type='radio' name='co4' value='1'></td>
+<td>$row[CO4]</td> 
+<td><input type='radio' name='co4' value='1' required></td>
+    <td><input type='radio' name='co4' value='2' required></td>
+    <td><input type='radio' name='co4' value='3' required></td>
+    <td><input type='radio' name='co4' value='4' required></td>
+    <td><input type='radio' name='co4' value='5' required></td>
 </tr>
 
 <tr>
 <td>5</td>
-<td>".$row["co5"]."</td> 
-<td><input type='radio' name='co5' value='5'></td>
-    <td><input type='radio' name='co5' value='4'></td>
-    <td><input type='radio' name='co5' value='3'></td>
-    <td><input type='radio' name='co5' value='2'></td>
-    <td><input type='radio' name='co5' value='1'></td>
+<td>$row[CO5]</td> 
+<td><input type='radio' name='co5' value='1' required></td>
+    <td><input type='radio' name='co5' value='2' required></td>
+    <td><input type='radio' name='co5' value='3' required></td>
+    <td><input type='radio' name='co5' value='4' required></td>
+    <td><input type='radio' name='co5' value='5' required></td>
 </tr>
 
 <tr>
 <td>6</td>
-<td>".$row["co6"]."</td>
-<td><input type='radio' name='co6' value='5'></td>
-    <td><input type='radio' name='co6' value='4'></td>
-    <td><input type='radio' name='co6' value='3'></td>
-    <td><input type='radio' name='co6' value='2'></td>
-    <td><input type='radio' name='co6' value='1'></td>
+<td>$row[CO6]</td>
+<td><input type='radio' name='co6' value='1' required></td>
+    <td><input type='radio' name='co6' value='2' required></td>
+    <td><input type='radio' name='co6' value='3' required></td>
+    <td><input type='radio' name='co6' value='4' required></td>
+    <td><input type='radio' name='co6' value='5' required></td>
 </tr>";
-
- }
- mysqli_close($conn);
-                     
 ?>
-    </table>
-</form>
-
 </div>
-    
-
-<div>
-
+    <div>
+</table>
 <br><br>
 <button type="submit">Submit</button>
 </div>
+ 
+</form>
 
 </body>
 </html>

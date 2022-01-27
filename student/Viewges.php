@@ -63,7 +63,7 @@ function showView(str) {
 </div>
 
 <?php
-include './dbcon.php';
+include '../dbcon.php';
 $sql1 = "select overall,count(rollnumber) from ges group by overall";
 $sql2 = "select training_placement,count(rollnumber) from ges group by training_placement;";
 $res1 = mysqli_query($conn,$sql1);
