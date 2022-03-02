@@ -7,7 +7,7 @@
     
 ?>
 
-<?php require 'studentContainer.php'; ?>
+<?php require 'facultyContainer.php'; ?>
 
 <div class="w3-container w3-main" style="margin-left:250px;">
   <div class="w3-container w3-center w3-green"> <h4>Graduate Exit Survey View</h4></div>
@@ -27,7 +27,7 @@ function showView(str) {
       document.getElementById("txtHint").innerHTML=this.responseText;
     }
   }
-  xmlhttp.open("GET","getView.php?batch="+str,true);
+  xmlhttp.open("GET","GetView.php?batch="+str,true);
   xmlhttp.send();
 }
 </script>
@@ -162,7 +162,7 @@ function drawChart2() {
 
 <br><br><br><br><br><br>
 
-<?php require 'footer.php'; ?>
+<?php require '../footer.php'; ?>
 
 
 

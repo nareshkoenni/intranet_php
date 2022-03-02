@@ -92,7 +92,7 @@ echo "<br/>";
 
 echo "<table class='w3-table-all w3-round' style='width:80%'>
     <tr class='w3-blue'>
-    <td>rating</td>
+    <td>Count</td>
     <td>CO1</td>
     <td>CO2</td>
     <td>CO3</td>

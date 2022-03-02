@@ -11,7 +11,7 @@ session_start();
                 if($row['role_id']=="5"){
                     echo header("Location:student/studentDashboard.php");
                 }else if($row['role_id']=="4"){
-                    echo header("Location:facultyContainer.php");
+                    echo header("Location:faculty/facultyContainer.php");
                 }else if($row['role_id']=="3"){
                     echo header("Location:classTeacherContainer.php");
                 }else if($row['role_id']=="2"){

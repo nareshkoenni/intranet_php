@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <title>BVRITH</title>
@@ -9,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
 <style>
 
 </style>
@@ -19,20 +21,15 @@
     <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-mobile" href="dashboard.php" >  <img class="w3-image" src="../images/logo.jpg" alt="Architecture" width="100" height="40">
   </a>
   <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
-  
-  <a class="w3-bar-item w3-button w3-teal" href="studentDashboard.php">Dashboard</a>
-  <a class="w3-bar-item w3-button" href="#">Profile</a>
-  
   <div>
     <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
     <div id="demo" class="w3-hide">
-      <a class="w3-bar-item w3-button" href="ces.php">Course End Survey</a>
-      <a class="w3-bar-item w3-button" href="ges.php">Graduate Exit Survey</a>
-      
+      <a class="w3-bar-item w3-button" href="Viewges.php">GES View</a>
+      <a class="w3-bar-item w3-button" href="Viewces.php">CES View</a>
       
     </div>
   </div>
-  </div>
+  
   <a class="w3-bar-item w3-button w3-teal" href="../logout.php">Logout</a>
   
 </nav>
@@ -78,4 +75,10 @@
       }
     }
 </script>    
+
+
+
+
+
+
 

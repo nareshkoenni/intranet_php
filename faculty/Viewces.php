@@ -10,12 +10,13 @@
 <!DOCTYPE html>
 <html>
 <title>BVRITH</title>
-<link rel = "icon" href = "images/logo.jpg" type = "image/x-icon">
-<?php require 'studentContainer.php'; ?>
+<link rel = "icon" href = "../images/logo.jpg" type = "image/x-icon">
+<?php require 'facultyContainer.php'; ?>
 
 <script>
     // Open and close the sidebar on medium and small screens
     function showform(str) {
+    
       if (str==="") {
         document.getElementById("txtHint").innerHTML="";
         return;
@@ -44,21 +45,20 @@
             var str=str.slice(0,str.length -1);
             var x = document.getElementById('sem').value;
             var y = document.getElementById('branch').value;
+            //alert("str"+str+x+y);
             $.ajax({          
                     type: "GET",
                     url: "get_course.php",
     //        	data:'section_id='+str,
                     data:{section_id:str,sem:x,branch:y},
                     success: function(data){
-                            $("#course_list").html(data);
+                            $("#course_list1").html(data);
                     }
             });
     }
 </script>    
 
-<br>
 
-<br>
 
 <div class="w3-container w3-main" style="margin-left:250px;">
   <div class="w3-container w3-center w3-green"> <h4>Course End Survey View</h4></div>
@@ -77,7 +77,7 @@
                     <option value="41">4-1</option>
                     <option value="42">4-2</option>
          </select>
-        <select class="w3-select w3-border w3-half w3-round-xlarge" name="Branch" id="branch" onchange="showCourse()">
+        <select class="w3-select w3-border w3-half w3-round-xlarge" name="Branch" id="branch">
                     <option value=""selected>Select Branch</option>
                     <option value="CSE">CSE</option>
                     <option value="IT">IT</option>
@@ -91,34 +91,19 @@
                     <option value="B">B</option>
                     <option value="C">C</option>
         </select>
-         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Course" id="course_list" onchange="showform(this.value)">
+         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Course" id="course_list1" onchange="showform(this.value)">
                     <option value=""selected>Select Course</option>
          </select>
 </form>
   <br><br><br>
   <div id="txtHint"></div>
 
-    <div class="w3-row-padding">
-          
-        
-        
-</div>
+    <div class="w3-row-padding"></div>
 </form>
+</div>
 </body>
 </html>
-<?php include '../dbcon.php';?>
-<?php  
-    error_reporting(0);
 
-    $sql = "SELECT * from course_end_survey";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_connect_errno())
-    {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
-     //echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
-    mysqli_close($conn);
-?>
 <br><br><br><br><br><br>
 <?php require '../footer.php';?>
 <?php
