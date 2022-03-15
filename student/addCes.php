@@ -20,16 +20,15 @@ session_start();// Starting Session
             echo "<script>alert('Submission  Fail - Please try again');window.location = 'ces.php'</script>"; 
         }else{
             try{
-            $sql="INSERT INTO course_end_survey(rollnumber,course_id,co1,co2,co3,co4,co5,co6) VALUES (?,?,?,?,?,?,?,?)";
-            $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "ssiiiiii",$rollnumber,$course_id,$co1,$co2,$co3,$co4,$co5,$co6);  
-            if(mysqli_stmt_execute($stmt)){
-            //  $last_id = mysqli_insert_id($conn);
-            // echo "the id is".$last_id;
-            echo "<script>alert('Submitted Successfully');window.location = 'ces.php'</script>"; 
-            }
-            }
-            catch(TypeError $ex)
+                $sql="INSERT INTO course_end_survey(rollnumber,course_id,co1,co2,co3,co4,co5,co6) VALUES (?,?,?,?,?,?,?,?)";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "ssiiiiii",$rollnumber,$course_id,$co1,$co2,$co3,$co4,$co5,$co6);  
+                if(mysqli_stmt_execute($stmt)){
+                //  $last_id = mysqli_insert_id($conn);
+                // echo "the id is".$last_id;
+                echo "<script>alert('Submitted Successfully');window.location = 'ces.php'</script>"; 
+                }
+            }catch(TypeError $ex)
             {
                 echo $ex->getMessage();
             }

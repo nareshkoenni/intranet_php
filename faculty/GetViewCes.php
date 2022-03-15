@@ -40,7 +40,9 @@ while($cour_id = mysqli_fetch_array($res)){
     $coo5 = $cour_id["CO5"];
     $coo6 = $cour_id["CO6"];
 }
-$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course s,course_branch b where b.branch='$branch'and b.sem='$sem'and b.section='$section' and c.course_id='$cid'and c.course_id=b.course_id and c.course_id=s.course_id;";
+
+//$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course s,course_branch b where b.branch='$branch'and b.sem='$sem'and b.section='$section' and c.course_id='$cid'and c.course_id=b.course_id and c.course_id=s.course_id";
+$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course_branch b where b.sem='$sem' and b.section='$section' and c.course_id='$cid' and c.course_id=b.course_id";
 $result= mysqli_query($conn,$sql);
 
 

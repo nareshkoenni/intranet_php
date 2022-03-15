@@ -5,6 +5,7 @@
     }
     if(($_SESSION["uname"]!="")){
     
+
 ?>
 
 <script>
@@ -52,7 +53,7 @@
 
 <div class="w3-container w3-main" style="margin-left:250px;">
   <div class="w3-container w3-center w3-green"> <h4>Course End Survey</h4></div>
-
+  <br>
     
 <form name="dashboard">
     
@@ -85,7 +86,7 @@
                     <option value=""selected>Select Course</option>
          </select>
 </form>
-  <br><br><br>
+  <br>
   <div id="txtHint"></div>
 
     <div class="w3-row-padding">
@@ -94,19 +95,7 @@
 </form>
 </body>
 </html>
-<?php include '../dbcon.php';?>
-<?php  
-    error_reporting(0);
 
-    $sql = "SELECT * from course_end_survey";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_connect_errno())
-    {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
-     //echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
-    mysqli_close($conn);
-?>
 <br><br><br><br><br><br>
 <?php require '../footer.php';?>
 <?php

@@ -21,9 +21,10 @@
     <a class="w3-bar-item w3-button w3-border-bottom w3-large w3-mobile" href="dashboard.php" >  <img class="w3-image" src="../images/logo.jpg" alt="Architecture" width="100" height="40">
   </a>
   <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+  <a class="w3-bar-item w3-button w3-teal" href="dashboard.php"><?php echo strtok($_SESSION["uname"],'@') ; ?></a>
   <div>
-    <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
-    <div id="demo" class="w3-hide">
+    <a class="w3-bar-item w3-button w3-teal" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="">
       <a class="w3-bar-item w3-button" href="Viewges.php">GES View</a>
       <a class="w3-bar-item w3-button" href="Viewces.php">CES View</a>
       

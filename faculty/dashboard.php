@@ -7,7 +7,7 @@
     
 ?>
 
-<?php require 'studentContainer.php'; ?>
+<?php require 'facultyContainer.php'; ?>
 
 
 <br>

@@ -33,7 +33,7 @@ function showView(str) {
 </script>
 </head>
 <body>
-
+    <br>
     <form name="Batch" metchod='POST'>
 <!--        <select  class="w3-select w3-border w3-half w3-round-xlarge" name="batch" onchange="showView(this.value)">
 <option value="" selected>Select your Batch:</option>

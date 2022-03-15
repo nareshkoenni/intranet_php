@@ -1,3 +1,8 @@
+<?php
+         session_start();
+   
+
+?>
 <!DOCTYPE html>
 <html>
 <title>BVRITH</title>
@@ -20,12 +25,11 @@
   </a>
   <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
   
-  <a class="w3-bar-item w3-button w3-teal" href="studentDashboard.php">Dashboard</a>
-  <a class="w3-bar-item w3-button" href="#">Profile</a>
+  <a class="w3-bar-item w3-button w3-teal" href="studentDashboard.php"><?php echo strtok($_SESSION["uname"],'@') ; ?></a>
   
   <div>
-    <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
-    <div id="demo" class="w3-hide">
+    <a class="w3-bar-item w3-button w3-teal" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="">
       <a class="w3-bar-item w3-button" href="ces.php">Course End Survey</a>
       <a class="w3-bar-item w3-button" href="ges.php">Graduate Exit Survey</a>
       

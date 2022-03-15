@@ -31,7 +31,7 @@
             </div>
             <div class="w3-mobile w3-hover-text-green">
                 <label>Last Login:</label>
-                <b><?php echo  $row_lic_pvr6_inspection["last_login"] ;?></b>
+                <b><?php echo $row_lic_pvr6_inspection["last_login"] ;?></b>
             </div>
             
             <?php

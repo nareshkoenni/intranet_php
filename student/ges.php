@@ -7,7 +7,10 @@
     
 ?>
 
-<?php require 'studentContainer.php'; ?>
+<?php require 'studentContainer.php'; 
+echo $uname=strtok($_SESSION["uname"],'@');
+
+?>
 
 
 
@@ -18,7 +21,7 @@
         <div class="w3-section">
         <div class="w3-container w3-half">
             <label><b>Roll Number</b></label>
-            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="" maxlength="10" name="rollnumber" required>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="" maxlength="10" name="rollnumber" value="<?php echo $uname;?>" readonly required>
         </div>
         <div class="w3-container w3-half">
             <label><b>Higher Studies Test</b></label>

@@ -1,3 +1,8 @@
+<?php
+         session_start();
+    //$_SESSION["uname"];
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +39,8 @@ $row = mysqli_fetch_array($result);
 echo "<form class='w3-panel w3-card-7' action='addCes.php' method='post'>";
 echo "<input type='hidden' value='$cid' name='course_id'>";
 echo "<label><b>Roll Number</b></label>";
-echo "<input class='w3-input w3-border w3-margin-bottom' type='text' placeholder='' maxlength='10' name='rollnumber' required>";
+$uname=strtok($_SESSION["uname"],'@');
+echo "<input class='w3-input w3-border w3-margin-bottom' type='text' maxlength='10' name='rollnumber' value='$uname' required='required' readonly>";
 echo "<table class='w3-table-all w3-round'>
 <tr>
     <td colspan='20'>
