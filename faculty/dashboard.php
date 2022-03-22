@@ -53,6 +53,6 @@
 </html> 
 <?php
 }else{
-    echo header("Location:index");
+     echo header("Location:../index.php");
 }
 ?>

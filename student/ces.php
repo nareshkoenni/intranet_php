@@ -101,5 +101,5 @@
 <?php
 
     }else{
-    echo header("Location:index.php");
+     echo header("Location:../index.php");
 }

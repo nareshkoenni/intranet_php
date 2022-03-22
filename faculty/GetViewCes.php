@@ -40,9 +40,11 @@ while($cour_id = mysqli_fetch_array($res)){
     $coo5 = $cour_id["CO5"];
     $coo6 = $cour_id["CO6"];
 }
+$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course_branch b, LogDetails l where b.sem='$sem' and b.section='$section' and c.course_id='$cid' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
+//$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course_branch b where b.sem='$sem' and b.section='$section' and c.course_id='$cid' and c.course_id=b.course_id";
 
-//$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course s,course_branch b where b.branch='$branch'and b.sem='$sem'and b.section='$section' and c.course_id='$cid'and c.course_id=b.course_id and c.course_id=s.course_id";
-$sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.CO3) as avg3,avg(c.CO4) as avg4,avg(c.CO5) as avg5,avg(c.CO6) as avg6 from course_end_survey c,course_branch b where b.sem='$sem' and b.section='$section' and c.course_id='$cid' and c.course_id=b.course_id";
+
+
 $result= mysqli_query($conn,$sql);
 
 
@@ -103,66 +105,96 @@ echo "<table class='w3-table-all w3-round' style='width:80%'>
     <td>CO6</td>
     </tr>";
 
-$sql1="select count(CO1) as '5' from course_end_survey where CO1 = '5' and course_id='$cid'";
+$sql1="select count(CO1) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO1 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result1= mysqli_query($conn,$sql1);
-$sql2="select count(CO1) as '4' from course_end_survey where CO1 = '4' and course_id='$cid'";
+
+$sql2="select count(CO1) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO1 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result2= mysqli_query($conn,$sql2);
-$sql3="select count(CO1) as '3' from course_end_survey where CO1 = '3' and course_id='$cid'";
+
+$sql3="select count(CO1) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO1 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result3= mysqli_query($conn,$sql3);
-$sql4="select count(CO1) as '2' from course_end_survey where CO1 = '2' and course_id='$cid'";
+
+$sql4="select count(CO1) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO1 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result4= mysqli_query($conn,$sql4);
-$sql5="select count(CO1) as '1' from course_end_survey where CO1 = '1' and course_id='$cid'";
+
+$sql5="select count(CO1) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO1 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result5= mysqli_query($conn,$sql5);
-$sql6="select count(CO2) as '5' from course_end_survey where CO2 = '5' and course_id='$cid'";
+
+$sql6="select count(CO2) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO2 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result6= mysqli_query($conn,$sql6);
-$sql7="select count(CO2) as '4' from course_end_survey where CO2 = '4' and course_id='$cid'";
+
+$sql7="select count(CO2) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO2 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result7= mysqli_query($conn,$sql7);
-$sql8="select count(CO2) as '3' from course_end_survey where CO2 = '3' and course_id='$cid'";
+
+$sql8="select count(CO2) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO2 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result8= mysqli_query($conn,$sql8);
-$sql9="select count(CO2) as '2' from course_end_survey where CO2 = '2' and course_id='$cid'";
+
+$sql9="select count(CO2) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO2 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result9= mysqli_query($conn,$sql9);
-$sql10="select count(CO2) as '1' from course_end_survey where CO2 = '1' and course_id='$cid'";
+
+$sql10="select count(CO2) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO2 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result10= mysqli_query($conn,$sql10);
-$sql11="select count(CO3) as '5' from course_end_survey where CO3 = '5' and course_id='$cid'";
+
+$sql11="select count(CO3) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO3 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result11= mysqli_query($conn,$sql11);
-$sql12="select count(CO3) as '4' from course_end_survey where CO3 = '4' and course_id='$cid'";
+
+$sql12="select count(CO3) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO3 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result12= mysqli_query($conn,$sql12);
-$sql13="select count(CO3) as '3' from course_end_survey where CO3 = '3' and course_id='$cid'";
+
+$sql13="select count(CO3) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO3 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result13= mysqli_query($conn,$sql13);
-$sql14="select count(CO3) as '2' from course_end_survey where CO3 = '2' and course_id='$cid'";
+
+$sql14="select count(CO3) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO3 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result14= mysqli_query($conn,$sql14);
-$sql15="select count(CO3) as '1' from course_end_survey where CO3 = '1' and course_id='$cid'";
+
+$sql15="select count(CO3) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO3 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result15= mysqli_query($conn,$sql15);
-$sql16="select count(CO4) as '5' from course_end_survey where CO4 = '5' and course_id='$cid'";
+
+$sql16="select count(CO4) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO4 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result16= mysqli_query($conn,$sql16);
-$sql17="select count(CO4) as '4' from course_end_survey where CO4 = '4' and course_id='$cid'";
+
+$sql17="select count(CO4) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO4 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result17= mysqli_query($conn,$sql17);
-$sql18="select count(CO4) as '3' from course_end_survey where CO4 = '3' and course_id='$cid'";
+
+$sql18="select count(CO4) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO4 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result18= mysqli_query($conn,$sql18);
-$sql19="select count(CO4) as '2' from course_end_survey where CO4 = '2' and course_id='$cid'";
+
+$sql19="select count(CO4) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO4 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result19= mysqli_query($conn,$sql19);
-$sql20="select count(CO4) as '1' from course_end_survey where CO4 = '1' and course_id='$cid'";
+
+$sql20="select count(CO4) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO4 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result20= mysqli_query($conn,$sql20);
-$sql21="select count(CO5) as '5' from course_end_survey where CO5 = '5' and course_id='$cid'";
+
+$sql21="select count(CO5) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO5 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result21= mysqli_query($conn,$sql21);
-$sql22="select count(CO5) as '4' from course_end_survey where CO5 = '4' and course_id='$cid'";
+
+$sql22="select count(CO5) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO5 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result22= mysqli_query($conn,$sql22);
-$sql23="select count(CO5) as '3' from course_end_survey where CO5 = '3' and course_id='$cid'";
+
+$sql23="select count(CO5) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO5 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result23= mysqli_query($conn,$sql23);
-$sql24="select count(CO5) as '2' from course_end_survey where CO5 = '2' and course_id='$cid'";
+
+$sql24="select count(CO5) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO5 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result24= mysqli_query($conn,$sql24);
-$sql25="select count(CO5) as '1' from course_end_survey where CO5 = '1' and course_id='$cid'";
+
+$sql25="select count(CO5) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO5 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result25= mysqli_query($conn,$sql25);
-$sql26="select count(CO6) as '5' from course_end_survey where CO6 = '5' and course_id='$cid'";
+
+$sql26="select count(CO6) as '5' from course_end_survey c, course_branch b, LogDetails l where c.CO6 = '5' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result26= mysqli_query($conn,$sql26);
-$sql27="select count(CO6) as '4' from course_end_survey where CO6 = '4' and course_id='$cid'";
+
+$sql27="select count(CO6) as '4' from course_end_survey c, course_branch b, LogDetails l where c.CO6 = '4' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result27= mysqli_query($conn,$sql27);
-$sql28="select count(CO6) as '3' from course_end_survey where CO6 = '3' and course_id='$cid'";
+
+$sql28="select count(CO6) as '3' from course_end_survey c, course_branch b, LogDetails l where c.CO6 = '3' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result28= mysqli_query($conn,$sql28);
-$sql29="select count(CO6) as '2' from course_end_survey where CO6 = '2' and course_id='$cid'";
+
+$sql29="select count(CO6) as '2' from course_end_survey c, course_branch b, LogDetails l where c.CO6 = '2' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result29= mysqli_query($conn,$sql29);
-$sql30="select count(CO6) as '1' from course_end_survey where CO6 = '1' and course_id='$cid'";
+
+$sql30="select count(CO6) as '1' from course_end_survey c, course_branch b, LogDetails l where c.CO6 = '1' and c.course_id='$cid' and  b.sem='$sem' and b.section='$section' and c.course_id=b.course_id and SUBSTRING(l.email,1,10)=c.rollnumber and b.section=l.section and b.branch='$branch'";
 $result30= mysqli_query($conn,$sql30);
+
   $row1 = mysqli_fetch_array($result1);
   $row6 = mysqli_fetch_array($result6);
   $row11 = mysqli_fetch_array($result11);
