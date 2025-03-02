@@ -21,6 +21,7 @@
         document.getElementById("txtHint").innerHTML="";
         return;
       }
+       var w = document.getElementById("batch").value;
       var x = document.getElementById("sem").value;
       var y = document.getElementById("branch").value;
       var z = document.getElementById("section").value;
@@ -31,7 +32,7 @@
           document.getElementById("txtHint").innerHTML=this.responseText;
         }
       };
-      xmlhttp.open("GET","GetViewCes.php?course="+str+"&sem="+x+"&branch="+y+"&section="+z,true);
+      xmlhttp.open("GET","GetViewCes.php?course="+str+"&sem="+x+"&branch="+y+"&section="+z+"&batch="+w,true);
       xmlhttp.send();
     }
     function showCourse() {
@@ -45,12 +46,13 @@
             var str=str.slice(0,str.length -1);
             var x = document.getElementById('sem').value;
             var y = document.getElementById('branch').value;
+            var w = document.getElementById("batch").value;
             //alert("str"+str+x+y);
             $.ajax({          
                     type: "GET",
                     url: "get_course.php",
     //        	data:'section_id='+str,
-                    data:{section_id:str,sem:x,branch:y},
+                    data:{section_id:str,sem:x,branch:y,batch:w},
                     success: function(data){
                             $("#course_list1").html(data);
                     }
@@ -83,6 +85,18 @@
                     <option value="IT">IT</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
+                    <option value="CSE(AIML)">CSE(AIML)</option>
+         </select>
+         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Batch" id="batch">
+                    <option value="" selected>Select Batch</option>
+                    <option value="16-20">16-20</option>
+                    <option value="17-21">17-21</option>
+                    <option value="18-22">18-22</option>
+                    <option value="19-23">19-23</option>
+                    <option value="20-24">20-24</option>
+                    <option value="21-25">21-25</option>
+                    <option value="22-26">22-26</option>
+                    <option value="23-27">23-27</option>
          </select>
     <br><br>
         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Section" id="section" onchange="showCourse()">
@@ -95,7 +109,7 @@
                     <option value=""selected>Select Course</option>
          </select>
 </form>
-  <br><br><br>
+  <br><p class="w3-text-yellow">Note : Please change section tab to populate list of courses</p><br> <br>
   <div id="txtHint"></div>
 
     <div class="w3-row-padding"></div>

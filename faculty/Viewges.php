@@ -16,18 +16,17 @@
 <html>
 <head>
 <script>
-function showView(str) {
-  if (str=="") {
-    document.getElementById("txtHint").innerHTML="";
-    return;
-  }
+function showView() {
+   var branch= document.getElementById("branch").value;
+   var batch=document.getElementById("batch").value;
+  
   var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("txtHint").innerHTML=this.responseText;
     }
   }
-  xmlhttp.open("GET","GetView.php?batch="+str,true);
+  xmlhttp.open("GET","GetView.php?batch="+batch+"&branch="+branch,true);
   xmlhttp.send();
 }
 </script>
@@ -42,15 +41,30 @@ function showView(str) {
 <option value="2020-2024">2020-2024</option>
 <option value="2021-2025">2021-2025</option>
 </select>-->
-        <select class="w3-select w3-border w3-half w3-round-xlarge"  name="batch" onchange="showView(this.value)" required="">
+        <select class="w3-select w3-border  w3-round-xlarge" name="Branch" id="branch">
+                    <option value=""selected>Select Branch</option>
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="CSE(AIML)">CSE(AIML)</option>
+         </select>
+        <select class="w3-select w3-border  w3-round-xlarge"  name="batch" id="batch" required="">
                     <option value="">Select Batch</option>
-                    <option value="2017-2021">2017-2021</option>
-                    <option value="2018-2022">2018-2022</option>
-                    <option value="2019-2023">2019-2023</option>
-                    <option value="2020-2024">2020-2024</option>
+                    <option value="16">2016-2020</option>
+                    <option value="17">2017-2021</option>
+                    <option value="18">2018-2022</option>
+                    <option value="19">2019-2023</option>
+                    <option value="20">2020-2024</option>
+                    <option value="21">2021-2025</option>
+                    <option value="22">2022-2026</option>
+                    <option value="23">2023-2027</option>
             </select>
-    </form>
-    
+            
+            
+            
+    </form><br>
+    <button class="w3-btn w3-green w3-large w3-round"  onclick="showView()">View</button>
     
     <br><br><br>
 <div id="txtHint"><b>View will be listed here.</b></div>
@@ -63,6 +77,7 @@ function showView(str) {
 </div>
 
 <?php
+/*
 include '../dbcon.php';
 $sql1 = "select overall,count(rollnumber) from ges group by overall";
 $sql2 = "select training_placement,count(rollnumber) from ges group by training_placement;";
@@ -139,7 +154,6 @@ function drawChart2() {
     <div id="piechart2"></div>
     </div>
 </body>
-<?php include 'dbcon.php';?>		
 
 <?php  
     error_reporting(0);
@@ -153,7 +167,7 @@ function drawChart2() {
      //echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
                  
     mysqli_close($conn);
-
+*/
 ?>
     
    

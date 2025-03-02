@@ -43,8 +43,8 @@ $uname=strtok($_SESSION["uname"],'@');
 echo "<input class='w3-input w3-border w3-margin-bottom' type='text' maxlength='10' name='rollnumber' value='$uname' required='required' readonly>";
 echo "<table class='w3-table-all w3-round'>
 <tr>
-    <td colspan='20'>
-<center><b>Evaluation of Course Outcomes</b></center>
+    <td colspan='20' class='w3-center w3-text-blue'>
+<center><b> Evaluation of $course Course Outcomes</b></center>
     </td>
 </tr>
 
@@ -96,9 +96,9 @@ echo "<table class='w3-table-all w3-round'>
     <td><input type='radio' name='co4' value='3' required></td>
     <td><input type='radio' name='co4' value='4' required></td>
     <td><input type='radio' name='co4' value='5' required></td>
-</tr>
-
-<tr>
+</tr>";
+ if(!strpos(strtoupper($cid), strtoupper("Lab")) !==false){
+echo "<tr>
 <td>5</td>
 <td>$row[CO5]</td> 
 <td><input type='radio' name='co5' value='1' required></td>
@@ -117,12 +117,13 @@ echo "<table class='w3-table-all w3-round'>
     <td><input type='radio' name='co6' value='4' required></td>
     <td><input type='radio' name='co6' value='5' required></td>
 </tr>";
+}
 ?>
 </div>
-    <div>
+    <div >
 </table>
 <br><br>
-<button type="submit">Submit</button>
+<button type="submit" class="w3-button w3-center w3-green w3-round-xlarge">Submit</button>
 </div>
  
 </form>

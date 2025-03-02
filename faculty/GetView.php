@@ -26,7 +26,9 @@ include '../dbcon.php'
 <div id="txtHint">
 <?php       
 //$dept=filter_input(INPUT_POST,"dept");
-$batch=$_GET["batch"];
+ $batch=$_GET["batch"];
+$branch=$_GET["branch"];
+
 $sql="SELECT truncate(avg(g.overall),2) as avg1,"
         . "truncate(avg(training_placement),2) as avg2,"
         . "truncate(avg(amenties),2) as avg3,"
@@ -39,11 +41,13 @@ $sql="SELECT truncate(avg(g.overall),2) as avg1,"
         . "truncate(avg(exam_cell),2) as avg10,"
         . "truncate(avg(administration),2) as avg11,"
         . "truncate(avg(ambience),2) as avg12,"
-        . "truncate(avg(classrooms),2) as avg13 "
-        . "from ges g,student s where g.rollnumber=s.rollnumber and s.batch='$batch'";
+        . "truncate(avg(classrooms),2) as avg13,"
+        . "count(g.rollnumber) as tcount"
+        . " from ges g, LogDetails l where LEFT(g.rollnumber, 2)='$batch' and g.rollnumber=LEFT(l.email, 10) and l.branch='$branch'";
 $result= mysqli_query($conn,$sql);
 
-
+//echo "$sql";
+//echo "$branch";
 echo "<table class='w3-table-all w3-round' style='width:80%'>
     <tr class='w3-blue'>
     <td>Fields</td>
@@ -51,7 +55,7 @@ echo "<table class='w3-table-all w3-round' style='width:80%'>
     </tr>";
 
 $count=0;
-while($row = mysqli_fetch_array($result)) {
+if($row = mysqli_fetch_array($result)) {
     $count++;
   echo "<tr>";
   echo "<td>" . 'Overall Rating'. "</td>";
@@ -70,15 +74,15 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['avg4'] . "</td>";
   echo "</tr>";
   echo "<tr>";
-  echo "<td>" . 'Principal'. "</td>";
+  echo "<td>" . 'Principal (out of 3)'. "</td>";
   echo "<td>" . $row['avg5'] . "</td>";
   echo "</tr>";
    echo "<tr>";
-  echo "<td>" . 'HOD'. "</td>";
+  echo "<td>" . 'HOD (out of 3)'. "</td>";
   echo "<td>" . $row['avg6'] . "</td>";
   echo "</tr>";
    echo "<tr>";
-  echo "<td>" . 'Teaching'. "</td>";
+  echo "<td>" . 'Teaching (out of 3)'. "</td>";
   echo "<td>" . $row['avg7'] . "</td>";
   echo "</tr>";
   echo "<tr>";
@@ -106,13 +110,18 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['avg13'] . "</td>";
   echo "</tr>";
 
-}
-$stu = "select count(g.rollnumber) as tcount from ges g,student s where g.rollnumber=s.rollnumber and s.batch='$batch'";
-$result1= mysqli_query($conn,$stu);
-while($row = mysqli_fetch_array($result1)){
+//}
+//$stu = "select count(g.rollnumber) as tcount from ges g,student s where g.rollnumber=s.rollnumber and s.batch='$batch'";
+//$result1= mysqli_query($conn,$stu);
+//while($row = mysqli_fetch_array($result1)){
     echo "<tr>";
-  echo "<td>" . 'Total Students'. "</td>";
-  echo "<td>" . $row['tcount'] . "</td>";
+  echo "<td>" . 'Total Number of Students given'. "</td>";
+  if($branch=='CSE' && $batch=='17'){
+    echo "<td>113</td>";
+  }else{
+    echo "<td>" .  $row['tcount']. "</td>";  
+  }
+  
   echo "</tr>";
 }
 if($count==0){
@@ -120,6 +129,7 @@ if($count==0){
   echo "<td colspan='2'>" . 'No Details' . "</td>";
   
   echo "</tr>";
+
 }
 echo "</table>";
 echo "<br/>";
@@ -127,10 +137,10 @@ echo "<br/>";
 </div>
     
 <?php
-echo "<form action = 'chart.php' method='post'>";
-echo "<input type='hidden' value='$batch' name='batch'>";
-echo "<button>Next</button>";
-echo "</form>";
+//echo "<form action = 'chart.php' method='post'>";
+//echo "<input type='hidden' value='$batch' name='batch'>";
+//echo "<button>Next</button>";
+//echo "</form>";
 ?>
     
 

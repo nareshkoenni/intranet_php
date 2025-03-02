@@ -74,6 +74,8 @@
                     <option value="IT">IT</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
+                    <option value="CSE(AIML)">CSE(AIML)</option>
+                    
          </select>
     <br><br>
         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Section" id="section" onchange="showCourse()">
@@ -86,7 +88,7 @@
                     <option value=""selected>Select Course</option>
          </select>
 </form>
-  <br>
+   <br><p class="w3-text-yellow">Note : Please change section tab to populate list of courses</p><br> <br>
   <div id="txtHint"></div>
 
     <div class="w3-row-padding">
