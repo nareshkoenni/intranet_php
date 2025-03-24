@@ -1,6 +1,7 @@
 <?php
 
-$conn = mysqli_connect("localhost", "bvrithvidya", "Bvrithvidya@123", "bvrithvidya");
+$conn = mysqli_connect("127.0.0.1:3306", "root", "", "intranet"); //prod
+//$conn = mysqli_connect("127.0.0.1:8889", "root", "root", "intranet");  //local
 
 // Check connection
 if (!$conn) {

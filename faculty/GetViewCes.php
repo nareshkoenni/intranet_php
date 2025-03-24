@@ -91,7 +91,7 @@ $sql="SELECT count(c.CO1) as count,avg(c.CO1) as avg1,avg(c.CO2) as avg2,avg(c.C
 $result= mysqli_query($conn,$sql);
 
 
-echo "<table class='w3-table-all w3-round' style='width:80%'>
+echo "<table class='w3-container w3-table-all w3-round w3-center' style='width:80%'>
     <tr class='w3-blue'>
     <td>".$course." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Course Outcomes</td>
     <td>Average</td>
@@ -141,7 +141,7 @@ if($count==0){
 echo "</table>";
 echo "<br/>";
 
-echo "<table class='w3-table-all w3-round' style='width:80%'>
+echo "<table class='w3-container w3-table-all w3-round' style='width:80%'>
     <tr class='w3-blue'>
     <td>Count</td>
     <td>CO1</td>
