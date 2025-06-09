@@ -46,7 +46,7 @@ if($section=='A'){
    }else if($branch=='EEE'){       
          $rollStart='0201';
          $rollEnd='0265';
-   }else if($branch=='CSE(AIML)'){       
+   }else if($branch=='AIML'){       
          $rollStart='6601';
          $rollEnd='6665';
    }        
@@ -60,7 +60,7 @@ if($section=='A'){
    }else if($branch=='IT'){       
          $rollStart='1266';
          $rollEnd='12C9';
-   }else if($branch=='CSE(AIML)'){       
+   }else if($branch=='AIML'){       
          $rollStart='6666';
          $rollEnd='66C9';
    }     

@@ -134,7 +134,7 @@
                     <option value="IT">IT</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
-                    <option value="CSE(AIML)">CSE(AIML)</option>
+                    <option value="AIML">AIML</option>
          </select>
          <select class="w3-select w3-border w3-half w3-round-xlarge" name="Batch" id="batch">
                     <option value="" selected>Select Batch</option>

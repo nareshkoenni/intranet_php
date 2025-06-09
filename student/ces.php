@@ -74,7 +74,7 @@
                     <option value="IT">IT</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
-                    <option value="CSE(AIML)">CSE(AIML)</option>
+                    <option value="AIML">AIML</option>
                     
          </select>
     <br><br>
