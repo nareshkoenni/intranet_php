@@ -16,8 +16,8 @@ if(!empty($_GET['section_id'])) {
         $batch = substr($_SESSION["uname"], 0, 2);
        
         if($batch=='17'){
-            $batch='16';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            $batch='16';  //regular
+            if(substr($_SESSION["uname"], -6,1)=="5"){ //les
         	   $batch='16';
         	}
         }
@@ -57,7 +57,12 @@ if(!empty($_GET['section_id'])) {
         	   $batch='22';
         	}
         }
-        
+        if($batch=='24'){
+            $batch='23';
+            if(substr($_SESSION["uname"], -6,1)=="5"){
+        	   $batch='23';
+        	}
+        }
 	 $query ="select b.course_id as name from course_branch b where b.branch='$branch' and b.section='$section' and b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
         $result = mysqli_query($conn,$query);
 ?>

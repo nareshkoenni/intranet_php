@@ -146,6 +146,7 @@
                     <option value="21-25">21-25</option>
                     <option value="22-26">22-26</option>
                     <option value="23-27">23-27</option>
+                    <option value="24-28">24-28</option>
          </select>
     <br><br>
         <select class="w3-select w3-border w3-half w3-round-xlarge" name="Section" id="section" onchange="showCourse()">
