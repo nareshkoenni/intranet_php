@@ -17,53 +17,54 @@ if(!empty($_GET['section_id'])) {
        
         if($batch=='17'){
             $batch='16';  //regular
-            if(substr($_SESSION["uname"], -6,1)=="5"){ //les
+            if(substr($_SESSION["uname"], 4,1)=="5"){ //les
         	   $batch='16';
         	}
         }
+       
         if($batch=='18'){
             $batch='18';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	  $batch='16';
         	}
         }
         if($batch=='19'){
             $batch='18';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
         if($batch=='20'){
             $batch='18';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
         if($batch=='21'){
             $batch='18';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
-        if($batch=='22'){
-            $batch='22';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
-        	   $batch='18';
-        	}
+        if($batch=="22"){
+            $batch="22";
+            if(substr($_SESSION["uname"], 4,1)=='5'){
+        	   $batch="18";
+            }
         }
         if($batch=='23'){
             $batch='23';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='22';
         	}
         }
         if($batch=='24'){
             $batch='23';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='23';
         	}
         }
-	 $query ="select b.course_id as name from course_branch b where b.branch='$branch' and b.section='$section' and b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
+        $query ="select b.course_id as name from course_branch b where b.branch='$branch' and b.section='$section' and b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
         $result = mysqli_query($conn,$query);
 ?>
 	<option value="">Select Course</option>

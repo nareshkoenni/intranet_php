@@ -46,6 +46,7 @@
                             $("#course_list").html(data);
                     }
             });
+           // alert(str+x+y);
     }
 </script>    
 
@@ -83,6 +84,10 @@
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    
         </select>
          <select class="w3-select w3-border w3-half w3-round-xlarge" name="Course" id="course_list" onchange="showform(this.value)">
                     <option value=""selected>Select Course</option>

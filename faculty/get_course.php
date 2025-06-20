@@ -6,50 +6,51 @@ if(!empty($_GET['section_id'])) {
         $sem = $_GET["sem"];
         $batch = substr($_GET["batch"], 0, 2);
         if($batch=='17'){
-            $batch='16';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            $batch='16';  //regular
+            if(substr($_SESSION["uname"], 4,1)=="5"){ //les
         	   $batch='16';
         	}
         }
+       
         if($batch=='18'){
             $batch='18';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	  $batch='16';
         	}
         }
         if($batch=='19'){
             $batch='18';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
         if($batch=='20'){
             $batch='18';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
         if($batch=='21'){
             $batch='18';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='18';
         	}
         }
-        if($batch=='22'){
-            $batch='22';
-            if(substr($_GET["batch"], -6,1)=="5"){
-        	   $batch='18';
-        	}
+        if($batch=="22"){
+            $batch="22";
+            if(substr($_SESSION["uname"], 4,1)=='5'){
+        	   $batch="18";
+            }
         }
         if($batch=='23'){
             $batch='23';
-            if(substr($_GET["batch"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='22';
         	}
         }
         if($batch=='24'){
             $batch='23';
-            if(substr($_SESSION["uname"], -6,1)=="5"){
+            if(substr($_SESSION["uname"], 4,1)=="5"){
         	   $batch='23';
         	}
         }

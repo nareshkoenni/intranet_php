@@ -66,8 +66,23 @@ if($section=='A'){
    }     
 }else if($section=='C'){
    if($branch=='CSE'){       
-         $rollStart='05C1';
-        $rollEnd='05I0';
+         $rollStart='05C9';
+        $rollEnd='05K2';
+   }  
+}else if($section=='D'){
+   if($branch=='CSE'){       
+         $rollStart='05K3';
+        $rollEnd='05R6';
+   }  
+}else if($section=='E'){
+   if($branch=='CSE'){       
+         $rollStart='05R7';
+        $rollEnd='05Z0';
+   }  
+}else if($section=='F'){
+   if($branch=='CSE'){       
+         $rollStart='05Z1';
+        $rollEnd='05CH';
    }  
 }
 $course=$_GET["course"];
