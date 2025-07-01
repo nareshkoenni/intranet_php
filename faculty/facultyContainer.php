@@ -25,8 +25,9 @@
   <div>
     <a class="w3-bar-item w3-button w3-teal" onclick="myAccordion('demo')" href="javascript:void(0)">Surveys <i class="fa fa-caret-down"></i></a>
     <div id="demo" class="">
-      <a class="w3-bar-item w3-button" href="Viewges.php">GES View</a>
-      <a class="w3-bar-item w3-button" href="Viewces.php">CES View</a>
+      <a class="w3-bar-item w3-button" href="Viewges.php">Graduate Exit Survey</a>
+      <a class="w3-bar-item w3-button" href="course.php">Course</a>
+      <a class="w3-bar-item w3-button" href="Viewces.php">Course End Survey</a>
       
     </div>
   </div>

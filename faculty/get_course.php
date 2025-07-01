@@ -1,6 +1,6 @@
 <?php
 include '../dbcon.php';
-if(!empty($_GET['section_id'])) {
+if(!empty($_GET['branch'])) {
         $section = $_GET["section_id"]; 
         $branch = $_GET["branch"]; 
         $sem = $_GET["sem"];
@@ -55,7 +55,13 @@ if(!empty($_GET['section_id'])) {
         	}
         }
     	 $query ="select b.course_id as name from course_branch b where b.branch='$branch' and b.section='$section' and b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
-        $result = mysqli_query($conn,$query);
+        if($section==null){
+            $query ="select distinct b.course_id as name from course_branch b where b.branch='$branch' and b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
+        }
+        if($branch=="All"){
+            $query ="select distinct b.course_id as name from course_branch b where b.sem='$sem' and b.regulation='$batch' order by b.course_id desc";
+        }
+         $result = mysqli_query($conn,$query);
 ?>
 	<option value="">Select Course</option>
 <?php

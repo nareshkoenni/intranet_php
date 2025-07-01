@@ -154,6 +154,9 @@
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
         </select>
          <select class="w3-select w3-border w3-half w3-round-xlarge" name="Course" id="course_list1" onchange="performMainSearch(this.value)" onkeydown="checkEnter(event)" onsubmit="addButton.disabled = true; return true;">
                     <option value=""selected>Select Course</option>
