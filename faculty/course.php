@@ -91,7 +91,7 @@
 </script>    
 
 <div class="w3-mobile w3-container" style="margin-left:250px;">
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-green w3-round-xlarge">New Course?</button>
+    <button onclick="document.getElementById('newCourse').style.display='block'" class="w3-btn w3-green w3-round-xlarge">New Course?</button>
     <button onclick="document.getElementById('assignCourse').style.display='block'" class="w3-btn w3-green w3-round-xlarge">Assign Course</button>
    
 
@@ -213,7 +213,7 @@
          </select>
     </div>
     <div class="w3-third">
-         <select class="w3-select w3-border w3-round-xlarge" name="Batch" id="abatch" onchange="showCourse()">
+         <select class="w3-select w3-border w3-round-xlarge" name="Batch" id="abatch">
                     <option value="" selected>Select Batch</option>
                     <option value="18-22">18-22</option>
                     <option value="19-23">19-23</option>
@@ -225,11 +225,31 @@
          </select>
     </div>
     
-    <div class="w3-third">
+<!--    <div class="w3-third">
          <select class="w3-select w3-border w3-round-xlarge" name="Course" id="acourse_list1">
                     <option value=""selected>Select Course</option>
          </select>
-    </div>
+    </div>-->
+    <div class="w3-third w3-mobile w3-hover-text-green">
+                
+                <select class="w3-select w3-border w3-round-xlarge" name="Course" id="acourse_list1" >
+                    <option value="" selected>Select Course</option>
+                   <?php include '../dbcon.php';?>		
+                    <?php  
+                        error_reporting(0);
+                        $sql = "SELECT course_id from course order by course_id";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)) {
+                     ?>        
+                            <option value='<?php echo $row["course_id"];?>'><?php echo $row["course_id"] ;?></option>  						
+                    <?php
+                        }
+                        mysqli_close($conn);
+
+                    ?>
+                </select>
+            </div>        
+           
     <div class="w3-third">
         <select class="w3-select w3-border w3-round-xlarge" name="Section" id="asection">
                     <option value=""selected>Select Section</option>  
@@ -249,7 +269,54 @@
       </form>      
     </div>
   </div>
+  <div id="newCourse" class="w3-modal">
+   
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round-xlarge" style="max-width:750px">
+      
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('newCourse').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+      </div>
+       <form class="w3-container" action="addCourse.php" onsubmit="editButton.disabled = true; return true;" method="post">
+         
+         <div class="w3-mobile">  
+            <input class="w3-input" type="text" placeholder="Enter course_id  (eg:BH23_PPS for theory, BH23_PPSLab for lab)" name="course_id" maxlength="100" >
+        </div>
+        
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter CO1" name="CO1">
+        </div>
 
+        <div class="w3-mobile">
+             <input class="w3-input" type="text" placeholder="Enter CO2" name="CO2">
+        </div>
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter CO3" name="CO3">
+        </div>       
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter CO4" name="CO4">
+        </div>
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter CO5 (optional for lab)" name="CO5">
+        </div>
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter CO6 (optional for lab)"  name="CO6">
+        </div>
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter Text book name" name="textbook">
+        </div>
+        <div class="w3-mobile">
+            <input class="w3-input" type="text" placeholder="Enter Reference book name" name="referencebook">
+        </div>
+           <br>
+      <div class="w3-half ">
+          <button class="w3-button w3-green w3-round-xlarge" id="addButton"   type="submit">Add</button>
+      </div>
+      <div class="w3-half">
+          <button onclick="document.getElementById('newCourse').style.display='none'" type="button" class="w3-button w3-red w3-round-xlarge">Cancel</button>
+      </div>     
+      </form>      
+    </div>
+  </div>
 </body>
 </html>
 

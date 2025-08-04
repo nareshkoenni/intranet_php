@@ -41,7 +41,7 @@ echo "<input type='hidden' value='$cid' name='course_id'>";
 echo "<label><b>Roll Number</b></label>";
 $uname=strtok($_SESSION["uname"],'@');
 echo "<input class='w3-input w3-border w3-margin-bottom' type='text' maxlength='10' name='rollnumber' value='$uname' required='required' readonly>";
-echo "<table class='w3-table-all w3-round'>
+echo "<table class='w3-table-all w3-round-xlarge'>
 <tr>
     <td colspan='20' class='w3-center w3-text-blue'>
 <center><b> Evaluation of $course Course Outcomes</b></center>
@@ -123,7 +123,7 @@ echo "<tr>
     <div >
 </table>
 <br><br>
-<button type="submit" class="w3-button w3-center w3-green w3-round-xlarge">Submit</button>
+<button type="submit" class="w3-button w3-right w3-green w3-round-xlarge">Submit</button>
 </div>
  
 </form>

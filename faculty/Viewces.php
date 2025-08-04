@@ -138,8 +138,6 @@
          </select>
          <select class="w3-select w3-border w3-half w3-round-xlarge" name="Batch" id="batch">
                     <option value="" selected>Select Batch</option>
-                    <option value="16-20">16-20</option>
-                    <option value="17-21">17-21</option>
                     <option value="18-22">18-22</option>
                     <option value="19-23">19-23</option>
                     <option value="20-24">20-24</option>

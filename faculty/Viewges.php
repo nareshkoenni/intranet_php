@@ -51,8 +51,7 @@ function showView() {
          </select>
         <select class="w3-select w3-border  w3-round-xlarge"  name="batch" id="batch" required="">
                     <option value="">Select Batch</option>
-                    <option value="16">2016-2020</option>
-                    <option value="17">2017-2021</option>
+                    
                     <option value="18">2018-2022</option>
                     <option value="19">2019-2023</option>
                     <option value="20">2020-2024</option>
