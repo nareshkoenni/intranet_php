@@ -16,19 +16,19 @@
 <html>
 <head>
 <script>
-function showView() {
-   var branch= document.getElementById("branch").value;
-   var batch=document.getElementById("batch").value;
-  
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("txtHint").innerHTML=this.responseText;
+    function showView(type) {
+       var branch= document.getElementById("branch").value;
+       var batch=document.getElementById("batch").value;
+
+      var xmlhttp=new XMLHttpRequest();
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("txtHint").innerHTML=this.responseText;
+        }
+      }
+      xmlhttp.open("GET","GetView.php?batch="+batch+"&branch="+branch+"&type="+type,true);
+      xmlhttp.send();
     }
-  }
-  xmlhttp.open("GET","GetView.php?batch="+batch+"&branch="+branch,true);
-  xmlhttp.send();
-}
 </script>
 </head>
 <body>
@@ -64,8 +64,8 @@ function showView() {
             
             
     </form><br>
-    <button class="w3-btn w3-green w3-large w3-round"  onclick="showView()">View</button>
-    
+    <button class="w3-btn w3-green w3-large w3-round"  onclick='showView("view")'>View</button>
+    <button class="w3-btn w3-green w3-large w3-round"  onclick='showView("notGivenList")'>Not Given List</button>
     <br><br><br>
 <div id="txtHint"><b>View will be listed here.</b></div>
 

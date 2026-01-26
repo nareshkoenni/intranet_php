@@ -28,7 +28,7 @@
       <a class="w3-bar-item w3-button" href="Viewges.php">Graduate Exit Survey</a>
       <a class="w3-bar-item w3-button" href="course.php">Course</a>
       <a class="w3-bar-item w3-button" href="Viewces.php">Course End Survey</a>
-      
+      <a class="w3-bar-item w3-button" href="users.php">Users</a>
     </div>
   </div>
   
